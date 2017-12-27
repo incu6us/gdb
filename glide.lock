@@ -1,0 +1,11 @@
+hash: fc851c5dddee49a7128210303c3afe5b392df02777980ba4ee045759da91c6df
+updated: 2017-12-26T23:59:38.887185+02:00
+imports:
+- name: github.com/incu6us/barkup
+  version: 6f75b0eaf54b4e46153e695d0ef3b2fe5fe945eb
+- name: gopkg.in/amz.v3
+  version: 8c3190dff075bf5442c9eedbf8f8ed6144a099e7
+  subpackages:
+  - aws
+  - s3
+testImports: []

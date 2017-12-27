@@ -1,0 +1,20 @@
+{
+  "s3": {
+    "endpoint": "https://test-bucket-01.nyc3.digitaloceanspaces.com",
+    "region": "nyc3",
+    "bucket": "test-bucket-01",
+    "access-key": "*************",
+    "secret-key": "**********************"
+  },
+  "mysql-configs": [
+    {
+      "host": "127.0.0.1",
+      "port": 3306,
+      "db": "database01",
+      "user": "root",
+      "password": "p@ssw0rd",
+      "options": [],
+      "s3-dir": "mysql-bkp"
+    }
+  ]
+}

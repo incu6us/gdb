@@ -1,0 +1,4 @@
+package: gdb
+import:
+- package: github.com/incu6us/barkup
+  version: "6f75b0eaf54b4e46153e695d0ef3b2fe5fe945eb"
