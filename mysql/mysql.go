@@ -8,6 +8,7 @@ import (
     "gdb/config"
 
     "github.com/incu6us/barkup"
+    "github.com/influxdata/influxdb/cmd/influxd/backup"
 )
 
 func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
@@ -23,8 +24,9 @@ func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
         Options:  mysqlConfig.Options,
     }
 
+    var s3 *barkup.S3
     if &s3Config != nil {
-        s3 := &barkup.S3{
+        s3 = &barkup.S3{
             Endpoint:     s3Config.Endpoint,
             Region:       s3Config.Region,
             Bucket:       s3Config.Region,
