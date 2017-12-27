@@ -8,7 +8,6 @@ import (
     "gdb/config"
 
     "github.com/incu6us/barkup"
-    "github.com/influxdata/influxdb/cmd/influxd/backup"
 )
 
 func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
