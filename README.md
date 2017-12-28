@@ -37,4 +37,4 @@ Config example:
  * `s3` - general configuration for S3(for AWS S3 you could skip `bucket-endpoint` parameter in json config) or DigitalOcean Space;
  * `mysql-configs` - multiple configurations for MySQL database:
     -  `s3-dir` - path in S3 bucket where backup will be stored
- * `local-configs` - configurations for local files & directories to store it on S3
+ * `local-configs` - configurations for local files & directories to store it to S3
