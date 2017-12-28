@@ -23,10 +23,11 @@ type Location struct {
 func (x Location) Export() *ExportResult {
 	result := &ExportResult{MIME: "application/x-tar"}
 
-	dumpName := strings.Split(x.Path, string(os.PathSeparator))
+	origPath := strings.TrimSuffix(x.Path, string(os.PathSeparator))
+	dumpName := strings.Split(origPath, string(os.PathSeparator))
 	dumpPath := fmt.Sprintf(`%v_%v`, dumpName[len(dumpName)-1], time.Now().Unix())
 
-	cpOut, err := exec.Command(CopyCmd, "-r", x.Path, dumpPath).Output()
+	cpOut, err := exec.Command(CopyCmd, "-r", origPath, dumpPath).Output()
 	if err != nil {
 		result.Error = makeErr(err, string(cpOut))
 		return result
