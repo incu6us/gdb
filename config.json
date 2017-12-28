@@ -16,5 +16,11 @@
       "options": [],
       "s3-dir": "mysql-bkp"
     }
+  ],
+  "local-configs": [
+    {
+      "path": "/etc/issue",
+      "s3-dir": "local-bkp"
+    }
   ]
 }

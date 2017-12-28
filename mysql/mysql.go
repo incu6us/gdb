@@ -5,14 +5,15 @@ import (
     "strconv"
     "strings"
 
-    "gdb/config"
+    "github.com/incu6us/gdb/config"
 
     "github.com/incu6us/barkup"
 )
 
 func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
 
-    log.Printf("MYSQl: %v", mysqlConfig)
+    log.Printf("MySQL --> host: %s; port: %d; database: %s; options: %v; s3: %s",
+        mysqlConfig.Host, mysqlConfig.Port, mysqlConfig.DB, mysqlConfig.Options, mysqlConfig.S3Dir)
 
     mysql := &barkup.MySQL{
         Host:     mysqlConfig.Host,
@@ -26,11 +27,11 @@ func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
     var s3 *barkup.S3
     if &s3Config != nil {
         s3 = &barkup.S3{
-            Endpoint:     s3Config.Endpoint,
-            Region:       s3Config.Region,
-            Bucket:       s3Config.Region,
-            AccessKey:    s3Config.AccessKey,
-            ClientSecret: s3Config.SecretKey,
+            BucketEndpoint: s3Config.BucketEndpoint,
+            Region:         s3Config.Region,
+            Bucket:         s3Config.Region,
+            AccessKey:      s3Config.AccessKey,
+            ClientSecret:   s3Config.SecretKey,
         }
     }
     dir := mysqlConfig.S3Dir
@@ -43,7 +44,7 @@ func Backup(mysqlConfig config.MySQLBackupConfig, s3Config config.S3Config) {
     }
 
     if err := result.To(dir, s3); err != nil {
-        log.Panicf("S3 error: %s", err)
+        log.Printf("S3 error: %s", err)
     }
 
 }
