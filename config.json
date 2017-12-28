@@ -1,6 +1,6 @@
 {
   "s3": {
-    "endpoint": "https://test-bucket-01.nyc3.digitaloceanspaces.com",
+    "bucket-endpoint": "https://test-bucket-01.nyc3.digitaloceanspaces.com",
     "region": "nyc3",
     "bucket": "test-bucket-01",
     "access-key": "*************",
